@@ -22,6 +22,7 @@ model User {
   publicKey     String?
   privateKey    String?
   documents     Document[]  @relation("UserDocuments")
+  signatures    Signature[] @relation("UserSignatures")
   createdAt     DateTime    @default(now())
   updatedAt     DateTime    @updatedAt
 }
@@ -39,6 +40,8 @@ model Document {
 model Signature {
   id            String      @id @default(cuid())
   documentId    String
+  userEmail     String
+  user          User        @relation("UserSignatures", fields: [userEmail], references: [email])
   document      Document    @relation("DocumentSignatures", fields: [documentId], references: [id])
   signature     String
   hash          String
