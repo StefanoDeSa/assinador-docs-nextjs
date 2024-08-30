@@ -15,12 +15,32 @@ datasource db {
 
 
 model User {
-  id            String   @id @default(cuid())
+  id            String      @id @default(cuid())
   name          String?
-  email         String   @unique
+  email         String      @unique
   password      String
   publicKey     String?
-  privateKey    String? 
-  createdAt     DateTime @default(now())
-  updatedAt     DateTime @updatedAt
+  privateKey    String?
+  documents     Document[]  @relation("UserDocuments")
+  createdAt     DateTime    @default(now())
+  updatedAt     DateTime    @updatedAt
+}
+
+model Document {
+  id            String      @id @default(cuid())
+  userEmail     String
+  user          User        @relation("UserDocuments", fields: [userEmail], references: [email])
+  text          String
+  signatures    Signature[] @relation("DocumentSignatures")
+  createdAt     DateTime    @default(now())
+  updatedAt     DateTime    @updatedAt
+}
+
+model Signature {
+  id            String      @id @default(cuid())
+  documentId    String
+  document      Document    @relation("DocumentSignatures", fields: [documentId], references: [id])
+  signature     String
+  hash          String
+  signedAt      DateTime    @default(now())
 }
