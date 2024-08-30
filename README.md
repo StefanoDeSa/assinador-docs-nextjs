@@ -5,7 +5,7 @@
 
 <li>Usuário deve conseguir gerar um par de chaves assimétricas; ✅
 
-<li>Usuário deve conseguir salvar documento;
+<li>Usuário deve conseguir salvar documento; ✅
 
 <li>Usuário deve conseguir assinar documento;
 
