@@ -55,7 +55,7 @@ export default function Register() {
                     required 
                     />
                 </div>
-                <p id="helper-text-explanation" class="mt-2 mb-7 text-sm text-gray-500 dark:text-gray-400">Caso tenha uma conta, faça o seu <Link href="login" class="font-medium text-blue-600 hover:underline dark:text-blue-500">Login</Link>.</p>
+                <p id="helper-text-explanation" className="mt-2 mb-7 text-sm text-gray-500 dark:text-gray-400">Caso tenha uma conta, faça o seu <Link href="login" className="font-medium text-blue-600 hover:underline dark:text-blue-500">Login</Link>.</p>
                 <button type="submit" className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Registrar</button>
             </form>
         </div>
