@@ -3,7 +3,7 @@
 
 <li>Usuário deve poder autenticar-se no sistema; ✅
 
-<li>Usuário deve conseguir gerar um par de chaves assimétricas;
+<li>Usuário deve conseguir gerar um par de chaves assimétricas; ✅
 
 <li>Usuário deve conseguir salvar documento;
 
