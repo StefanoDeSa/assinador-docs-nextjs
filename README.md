@@ -1,7 +1,7 @@
 ### A atividade consiste em desenvolver um assinador de documentos digitais utilizando criptografia de chave assimétrica e funções hash criptográficas. 
 ### Os principais requisitos são:
 
-<li>Usuário deve poder autenticar-se no sistema;
+<li>Usuário deve poder autenticar-se no sistema; ✅
 
 <li>Usuário deve conseguir gerar um par de chaves assimétricas;
 
