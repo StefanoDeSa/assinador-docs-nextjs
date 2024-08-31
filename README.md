@@ -10,7 +10,7 @@ Este é um projeto de assinatura digital de documentos utilizando Node.js, Next.
 - Usuário deve conseguir assinar documento; ✅
 - Usuário deve conseguir visualizar lista de documentos assinados; ✅
 - Usuário deve conseguir visualizar o documento assinado; ✅
-- Usuário deve conseguir checar se o documento foi assinado no sistema;
+- Usuário deve conseguir checar se o documento foi assinado no sistema; ✅
 
 ## Tecnologias Utilizadas
 
