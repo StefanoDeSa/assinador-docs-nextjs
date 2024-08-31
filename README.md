@@ -7,10 +7,10 @@
 
 <li>Usuário deve conseguir salvar documento; ✅
 
-<li>Usuário deve conseguir assinar documento;
+<li>Usuário deve conseguir assinar documento; ✅
 
-<li>Usuário deve conseguir visualizar lista de documentos assinados;
+<li>Usuário deve conseguir visualizar lista de documentos assinados; ✅
 
-<li>Usuário deve conseguir visualizar o documento assinado;
+<li>Usuário deve conseguir visualizar o documento assinado; ✅
 
 <li>Usuário deve conseguir checar se o documento foi assinado no sistema;
