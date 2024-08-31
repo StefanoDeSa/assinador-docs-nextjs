@@ -23,7 +23,7 @@ Este é um projeto de assinatura digital de documentos utilizando Node.js, Next.
 
 Antes de começar, você precisará ter as seguintes ferramentas instaladas:
 
-- [Node.js](https://nodejs.org/) v14 ou superior
+- [Node.js](https://nodejs.org/)
 - [npm](https://www.npmjs.com/)
 - [PostgreSQL](https://www.postgresql.org/)
 
