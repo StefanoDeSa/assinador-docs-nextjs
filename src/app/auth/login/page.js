@@ -18,12 +18,11 @@ export default function Login() {
             const user = await findUser(email);
 
             if (user && user.password === password) {
-                // Simples implementação de sessão usando cookies
                 document.cookie = `userEmail=${user.email}; path=/;`;
                 
                 alert('Usuário logado com sucesso!');
                 setTimeout(() => {
-                    router.push('/profile')
+                    router.push('/profile?reload=true');
                 }, 1000);
             } else {
                 setError('Email ou senha incorretos');

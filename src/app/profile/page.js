@@ -1,5 +1,6 @@
 'use client'
 import { useEffect, useState } from "react";
+import { useSearchParams } from 'next/navigation';
 import { getCookie } from "@/app/lib/utils/cookie";
 import { findUser, updateUserWithKeys } from "../lib/services/UserService";
 import LoadingSpinner from "../ui/LoadingSpinner";
@@ -7,8 +8,17 @@ import LoadingSpinner from "../ui/LoadingSpinner";
 export default function Profile() {
     const [user, setUser] = useState(null);
     const [loading, setLoading] = useState(true);
+    const searchParams = useSearchParams();
 
     useEffect(() => {
+
+        const reload = searchParams.get('reload');
+        if (reload) {
+            window.location.replace('/profile');
+            return;
+        }
+
+
         const fetchUserData = async () => {
             const userEmail = getCookie('userEmail');
             if (userEmail) {

@@ -58,3 +58,36 @@ export async function signDocument(documentId, userEmail) {
         throw error;
     }
 }
+
+export async function verifyDocument(signatureHash, documentText, publicKey) {
+    try {
+        const signatureRecord = await prisma.signature.findFirst({
+            where: { hash: signatureHash },
+            include: { document: true },
+        });
+
+        if (!signatureRecord) {
+            throw new Error("Assinatura não encontrada.");
+        }
+
+        const { signature, document } = signatureRecord;
+
+        if (document.text !== documentText) {
+            throw new Error("O texto do documento fornecido não corresponde ao texto assinado.");
+        }
+
+        // Converter a chave pública para o formato correto
+        const formattedPublicKey = `-----BEGIN PUBLIC KEY-----\n${publicKey.match(/.{1,64}/g).join('\n')}\n-----END PUBLIC KEY-----`;
+
+        const verifier = crypto.createVerify('RSA-SHA256');
+        verifier.update(documentText);
+        verifier.end();
+
+        const isVerified = verifier.verify(formattedPublicKey, signature, 'base64');
+
+        return { isVerified, signatureRecord };
+    } catch (error) {
+        console.error("Erro ao verificar documento:", error);
+        throw error;
+    }
+}

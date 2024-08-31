@@ -1,8 +1,8 @@
 'use client'
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import { createDocument } from "@/app/lib/services/DocumentService"; // Ajuste o caminho conforme necessário
-import { getCookie } from "@/app/lib/utils/cookie"; // Supondo que você já tenha uma função para obter o cookie do usuário
+import { createDocument } from "@/app/lib/services/DocumentService"; 
+import { getCookie } from "@/app/lib/utils/cookie";
 
 export default function NewDocument() {
     const [content, setContent] = useState("");
@@ -11,7 +11,6 @@ export default function NewDocument() {
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-        // Obtendo o e-mail do usuário a partir do cookie
         const userEmail = getCookie('userEmail');
         if (!userEmail) {
             console.error("Usuário não está logado ou e-mail não encontrado.");
@@ -19,7 +18,6 @@ export default function NewDocument() {
         }
 
         try {
-            // Criando o documento no banco de dados
             const newDocument = await createDocument(userEmail, content);
             alert('Documento criado com sucesso!');
             setTimeout(() => {
@@ -32,7 +30,7 @@ export default function NewDocument() {
     };
 
     return (
-        <div className="flex justify-center items-center h-screen">
+        <div className="flex justify-center items-center min-h-screen">
             <div className="w-10/12 md:w-6/12 lg:w-4/12">
                 <h1 className="text-2xl font-bold mb-6 text-center">Adicionar Novo Documento</h1>
                 <form onSubmit={handleSubmit} className="bg-white p-6 rounded-lg shadow-md">

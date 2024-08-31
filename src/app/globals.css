@@ -2,3 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
+.min-h-screen {
+    min-height: calc(100vh - 48px);
+}
+

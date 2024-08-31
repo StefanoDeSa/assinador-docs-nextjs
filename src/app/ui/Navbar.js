@@ -2,7 +2,7 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { Navbar, NavbarBrand, NavbarCollapse, NavbarLink, NavbarToggle } from "flowbite-react";
-import { getCookie, setCookie } from "../lib/utils/cookie";
+import { getCookie } from "../lib/utils/cookie";
 import { useRouter } from "next/navigation";
 
 export function NavbarLayout() {
@@ -10,18 +10,17 @@ export function NavbarLayout() {
   const router = useRouter();
 
   useEffect(() => {
-    // Busca o cookie do userEmail
     const email = getCookie('userEmail');
     if (email) {
       setUserEmail(email);
     }
-  }, []);
+  }, [userEmail]);
 
   const handleLogout = () => {
-    // Remove o cookie do userEmail
+
     document.cookie = `userEmail=${''}; path=/;`;
     setUserEmail(null);
-    router.push('auth/login'); // Redireciona para a página de login
+    router.push('/auth/login/');
   };
 
   return (
@@ -48,7 +47,7 @@ export function NavbarLayout() {
             Entrar
           </NavbarLink>
         )}
-        <NavbarLink as={Link} href="/">
+        <NavbarLink as={Link} href="/validate">
           Validar
         </NavbarLink>
       </NavbarCollapse>
