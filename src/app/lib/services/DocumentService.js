@@ -25,8 +25,14 @@ export async function findAllByUser(userEmail) {
             where: {
                 userEmail: userEmail,
             },
+            include: {
+                signatures: {
+                    where: {
+                        userEmail: userEmail,
+                    },
+                },
+            },
         });
-        console.log(`Documentos encontrados para o usuário ${userEmail}:`, documents);
         return documents;
     } catch (error) {
         console.error("Erro ao buscar documentos para o usuário:", error);
@@ -34,18 +40,18 @@ export async function findAllByUser(userEmail) {
     }
 }
 
+
 export async function findDocumentById(documentId) {
     try {
         const document = await prisma.document.findUnique({
             where: {
                 id: documentId,
             },
+            include: {
+                signatures: true,
+            },
         });
-        if (document) {
-            console.log("Documento encontrado:", document);
-        } else {
-            console.log("Documento não encontrado.");
-        }
+
         return document;
     } catch (error) {
         console.error("Erro ao buscar documento por ID:", error);

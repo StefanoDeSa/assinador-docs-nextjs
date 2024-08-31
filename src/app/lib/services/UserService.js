@@ -42,7 +42,6 @@ export async function updateUserWithKeys(userEmail, publicKey, privateKey) {
             },
         });
 
-        console.log(`Chaves RSA atualizadas para o usuário: ${updatedUser.email}`);
         return updatedUser;
     } catch (error) {
         console.error("Erro ao atualizar as chaves RSA do usuário:", error);
