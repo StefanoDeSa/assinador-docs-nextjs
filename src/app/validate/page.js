@@ -95,7 +95,7 @@ export default function Validate() {
                         <p className="text-sm text-gray-700 my-2 break-words">
                             <strong>Assinatura:</strong> {signature.signature}
                         </p>
-                        <p className="text-sm text-gray-700 my-2">
+                        <p className="text-sm text-gray-700 my-2 break-words">
                             <strong>Hash da assinatura:</strong> {signature.hash}
                         </p>
                         <p className="text-sm text-gray-700 my-2">

@@ -1,8 +1,9 @@
 import { Poppins } from "next/font/google";
 import "./globals.css";
 import { NavbarLayout } from "./ui/Navbar";
+import Footer from "./ui/Footer";
 
-const poppins = Poppins({subsets: ["latin"], weight: ['400']})
+const poppins = Poppins({ subsets: ["latin"], weight: ['400'] })
 
 export const metadata = {
   title: "Create Next App",
@@ -15,7 +16,9 @@ export default function RootLayout({ children }) {
       <body className={poppins.className}>
         <NavbarLayout />
         {children}
-        </body>
+        <Footer />
+
+      </body>
     </html>
   );
 }
